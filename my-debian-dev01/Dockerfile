@@ -11,7 +11,7 @@
 #
 #
 # 为了方便测试可以开启个临时环境进入测试用:
-# docker run --rm -it -e container=docker -e LANG=C.UTF-8 --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 60102:22 --hostname alice01 debian:11 bash
+# docker run --rm -it -e container=docker -e LANG=C.UTF-8 --tmpfs /tmp --tmpfs /run --tmpfs /run/lock -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 60102:22 --hostname pete01 debian:11 bash
 #
 #
 #########
@@ -69,23 +69,23 @@ COPY 55-supervisord.conf /etc/supervisor/conf.d/55-supervisord.conf
 #
 #
 # Setup the default user.
-RUN groupadd --gid 1000 alice
+RUN groupadd --gid 1000 pete
 #  #  # --groups 'root,sudo,docker' 
-RUN useradd --create-home --system -d /home/alice -s /bin/zsh --uid 1000 --gid 1000 --groups 'root,sudo' alice
-RUN echo 'alice:passw0rd' | chpasswd
-USER alice
-WORKDIR /home/alice
+RUN useradd --create-home --system -d /home/pete -s /bin/zsh --uid 1000 --gid 1000 --groups 'root,sudo' pete
+RUN echo 'pete:passw0rd' | chpasswd
+USER pete
+WORKDIR /home/pete
 #
 # Generate and configure user keys.
-USER alice
+USER pete
 #RUN ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
-COPY --chown=alice:alice "./authorized_keys" /home/alice/.ssh/authorized_keys
+COPY --chown=pete:pete "./authorized_keys" /home/pete/.ssh/authorized_keys
 # Install oh-my-zsh
 #RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 #
 # 用户自定义启动脚本
-COPY --chown=alice:alice auto.sh /home/alice/.local/auto.sh
-# RUN  chmod +x /home/alice/.local/auto.sh
+COPY --chown=pete:pete auto.sh /home/pete/.local/auto.sh
+# RUN  chmod +x /home/pete/.local/auto.sh
 #
 USER root
 EXPOSE 22

@@ -25,10 +25,10 @@ sshkeygen() {
 
 user_auto() {
     # 普通用户自定义启动运行脚本，
-    # NOTE: 运行用户的 alice 而不是root哦。。。
-    if [[ -x /home/alice/.local/auto.sh ]]; then
-        echo "[+] /home/alice/.local/auto.sh ..."
-        sudo -u alice /home/alice/.local/auto.sh
+    # NOTE: 运行用户的 pete 而不是root哦。。。
+    if [[ -x /home/pete/.local/auto.sh ]]; then
+        echo "[+] /home/pete/.local/auto.sh ..."
+        sudo -u pete /home/pete/.local/auto.sh
     fi
 }
 

@@ -20,9 +20,6 @@ deb http://security.debian.org/debian-security bullseye-security main
 deb http://deb.debian.org/debian bullseye-updates main
 ```
 
-sudo apt update
-sudo apt dist-upgrade
-
 如果需要使用socks5代理访问:
 ssh -CNg -D 127.0.0.1:1082 myproxyhostname
 sudo apt -o Acquire::http::proxy="socks5h://127.0.0.1:1082" update
@@ -84,5 +81,11 @@ $ npx -v
 直接命令行运行:
 $ npm install -g yarn
 
-会安装到 /home/alice/.local/nodejs/bin/yarn 本地目录，
+会安装到 /home/pete/.local/nodejs/bin/yarn 本地目录，
 下次升级nodejs后记得重新安装即可。
+
+### 安装rust-lang环境(手动安装)
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
