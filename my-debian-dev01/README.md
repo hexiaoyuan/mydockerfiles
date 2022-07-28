@@ -14,7 +14,7 @@ my-debian-dev01 是个人开发使用的基础 docker-image, 方便快速搭建�
 ```sh
 touch  authorized_keys
 docker build -f Dockerfile -t hexiaoyuan/my-debian-dev01:latest .
-docker tag hexiaoyuan/my-debian-dev01:latest hexiaoyuan/my-debian-dev01:v20211020
+docker tag hexiaoyuan/my-debian-dev01:latest hexiaoyuan/my-debian-dev01:v20220728
 docker push hexiaoyuan/my-debian-dev01 -a
 ```
 
@@ -86,7 +86,7 @@ docker run -d --init \
   -p 60101:22 \
   -e container=docker -e LANG=C.UTF-8  \
   --mount source=vol_pete01_home,target=/home \
-  --name pete01 --hostname pete01 hexiaoyuan/my-debian-dev01:v20211020
+  --name pete01 --hostname pete01 hexiaoyuan/my-debian-dev01:v20220728
 #
 docker exec -it pete01 zsh
 #
@@ -96,7 +96,8 @@ docker exec -it pete01 zsh
 #### 记录当前我的pete02开发环境启动命令
 docker run -d --init --env container=docker --env LANG=C.UTF-8 \
   --mount source=vol_pete02_home,target=/home                  \
-  -p 60102:22 --name pete02 --hostname pete02 hexiaoyuan/my-debian-dev01:v20211020
+  -p 60102:22 --name pete02 --hostname pete02 hexiaoyuan/my-debian-dev01:v20220728
 #
 #
 ```
+

@@ -51,8 +51,9 @@ python3 -m pip install --upgrade awscli  ## 升级
 
 ### 安装golang环境 (手动安装)
 
-wget https://golang.org/dl/go1.72.2.linux-amd64.tar.gz
-rm -rf ~/.local/go && tar -C ~/.local/ -xzf go1.17.2.linux-amd64.tar.gz
+`#wget https://go.dev/dl/go1.18.4.linux-amd64.tar.gz`
+wget https://golang.google.cn/dl/go1.18.4.linux-amd64.tar.gz
+rm -rf ~/.local/go && tar -C ~/.local/ -xzf go1.18.4.linux-amd64.tar.gz
 vi $HOME/.profile
 
 ```sh
@@ -64,7 +65,7 @@ $ go env
 
 ### 安装nodejs环境(手动安装)
 
-NODEJS_VERSION=v14.18.1
+NODEJS_VERSION=v16.16.0
 wget https://nodejs.org/dist/$NODEJS_VERSION/node-$NODEJS_VERSION-linux-x64.tar.xz
 tar -C ~/.local -xJvf node-$NODEJS_VERSION-linux-x64.tar.xz
 cd ~/.local; rm -f nodejs; ln -s node-$NODEJS_VERSION-linux-x64 nodejs; cd -;
@@ -79,7 +80,7 @@ $ npm version
 $ npx -v
 
 直接命令行运行:
-$ npm install -g yarn
+$ npm install --location=global yarn
 
 会安装到 /home/pete/.local/nodejs/bin/yarn 本地目录，
 下次升级nodejs后记得重新安装即可。
